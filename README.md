@@ -8,3 +8,4 @@ Há vários exercícios práticos individuais nas subpastas deste repositórios,
 - [1. Site simples em Flask](1.site-flask/)
 - [2. Site em Flask com Redis usando Docker Compose](2.flask-redis-compose/)
 - [3. Sistema de lista de tarefas em PHP + MySQL ou Redis](3.php-todo-list/)
+- [4. Exemplo de Flink com SQL](4.flink-sql-demo/)
