@@ -20,9 +20,9 @@ Esse arquivo define dois serviços:
 - `web`, que é construído a partir do `Dockerfile` na pasta atual (`build: .`), e cuja porta 5000 do container ficará vinculada à porta 8000 da nossa máquina (`ports: - "8000:5000"`);
 - `redis`, que é simplesmente um container rodando a imagem `redis:7.0-alpine` baixada do Docker Hub (mais detalhes sobre esta imagem em [https://hub.docker.com/_/redis](https://hub.docker.com/_/redis)).
 
-Note que não expomos a porta do Redis (por padrão é a 6379) na definição do `docker-compose.yml`. O Docker Compose automaticamente cria uma rede privada e coloca os dois containers nela, portanto a comunicação entre eles é liberada, e o serviço `web` consegue chegar na porta 6379 do `redis` sem nenhuma configuração adicional. Só precisamos expor a porta `5000` do container `web` pois queremos acessar o site da nossa máquina host (ou seja, de fora do container).
+Note que não expomos a porta do Redis (por padrão é a 6379) na definição do `docker-compose.yml`. O Docker Compose automaticamente cria uma rede privada e coloca os dois containers nela, portanto a comunicação entre eles é liberada, e o serviço `web` consegue chegar na porta 6379 do `redis` sem nenhuma configuração adicional, usando o próprio nome do serviço definido no `docker-compose.yml` (no caso, `redis`). Só precisamos expor a porta `5000` do container `web` pois queremos acessar o site da nossa máquina host (ou seja, de fora do container).
 
-Com essa definição feita, basta lançarmos o comando:
+Com essa definição feita, basta executar o comando:
 
 ```bash
 # Se você estiver usando uma versão antiga do Docker, talvez precise usar um hífen no comando: docker-compose up
