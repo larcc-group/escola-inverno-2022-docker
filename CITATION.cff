@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Rockenbach
+    given-names: "Dinei A."
+    affiliation: "Laboratory of Advanced Research on Cloud Computing (LARCC)"
+    orcid: "https://orcid.org/0000-0002-2091-9626"
+    alias: dineiar
+abstract: "Os códigos e dados presentes nesse repositório servem como material de apoio para o módulo 'Automação com contêineres usando Docker' da Escola de Inverno em Computação realizada pelo Laboratório de Pesquisas Avançadas para Computação em Nuvem (LARCC) em 2022. Mais informações em https://larcc.setrem.com.br/escola-de-inverno-2022/."
+title: "Módulo 'Automação com contêineres usando Docker' da Escola de Inverno em Computação 2022 do LARCC"
+message: "Se você usar esse software, por favor cite o trabalho usando estes metadados."
+license: LGPL-3.0
+identifiers:
+  - type: url
+    value: "https://larcc.setrem.com.br/escola-de-inverno-2022/"
+    description: "Site da Escola de Inverno de 2022 do LARCC"
+repository-code: "https://github.com/larcc-group/escola-inverno-2022-docker"
+date-released: "2022-07-29"
