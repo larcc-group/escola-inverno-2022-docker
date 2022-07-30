@@ -24,8 +24,6 @@ services:
       - MYSQL_HOST=banco-mysql
     ports:
       - 8080:80
-    volumes:
-      - ./src:/var/www/html/
   banco-mysql:
     image: mysql:8.0
     environment:
@@ -46,6 +44,28 @@ Com essa definição feita, para iniciar os serviços basta executar o comando:
 ```bash
 # Se você estiver usando uma versão antiga do Docker, talvez precise usar um hífen no comando: docker-compose up
 docker compose up
+```
+
+Caso queira verificar o resultado final no seu computador sem precisar compilar a imagem, ela está disponível já compilada no repositório de pacotes do GitHub. Basta alterar o `docker-compose.yml` para apontar para a imagem:
+
+```yml
+version: '3.9'
+services:
+  app-mysql:
+    image: ghcr.io/larcc-group/escola-inverno-2022-docker:3-php-todo-list-mysql
+    environment:
+      - MYSQL_HOST=banco-mysql
+    ports:
+      - 8080:80
+  banco-mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=senhasupersecreta
+      - MYSQL_DATABASE=bancotodo
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=123
+    volumes:
+      - ./banco:/docker-entrypoint-initdb.d
 ```
 
 ### Usando Redis
@@ -71,8 +91,6 @@ services:
       - REDIS_HOST=banco-redis
     ports:
       - 8080:80
-    volumes:
-      - ./src:/var/www/html/
   banco-redis:
     image: redis:7.0
 ```
@@ -86,4 +104,19 @@ Com essa definição feita, para iniciar os serviços basta executar o comando:
 ```bash
 # Se você estiver usando uma versão antiga do Docker, talvez precise usar um hífen no comando: docker-compose up
 docker compose up
+```
+
+Caso queira verificar o resultado final no seu computador sem precisar compilar a imagem, ela está disponível já compilada no repositório de pacotes do GitHub. Basta alterar o `docker-compose.yml` para apontar para a imagem:
+
+```yml
+version: '3.9'
+services:
+  app-redis:
+    image: ghcr.io/larcc-group/escola-inverno-2022-docker:3-php-todo-list-redis
+    environment:
+      - REDIS_HOST=banco-redis
+    ports:
+      - 8080:80
+  banco-redis:
+    image: redis:7.0
 ```

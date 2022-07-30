@@ -34,3 +34,16 @@ Esse comando automaticamente constrói a imagem para o serviço `web` compilando
 Da forma como usamos, esse comando "prende" o terminal e mostra os logs dos containers que foram iniciados, portanto pressionar <kbd>Ctrl</kbd>+<kbd>C</kbd> pára os containers. Caso você queira executar os containers em segundo plano e continuar usando o terminal, basta passar a flag `-d` no comando: `docker compose up -d`. Aí, para parar os containers basta usar o comando `docker compose stop`.
 
 Por fim, para apagar os containers criados pelo comando `docker compose up`, basta usar o comando `docker compose down`. Ele automaticamente remove os containers criados e a rede que foi criada para interligá-los. As imagens compiladas continuam disponíveis no seu _registry_ Docker local.
+
+Caso queira verificar o resultado final no seu computador sem precisar compilar a imagem, ela está disponível já compilada no repositório de pacotes do GitHub. Basta alterar o `docker-compose.yml` para apontar para a imagem:
+
+```yml
+version: "3.9"
+services:
+  web:
+    image: "ghcr.io/larcc-group/escola-inverno-2022-docker:2-flask-redis-compose"
+    ports:
+      - "8000:5000"
+  redis:
+    image: "redis:7.0-alpine"
+```

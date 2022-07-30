@@ -74,3 +74,9 @@ docker run -it -p 5000:5000 meu-site-flask:latest
 Pronto, agora acessando a porta 5000 do nosso computador pelo navegador ([http://localhost:5000/](http://localhost:5000/)) poderemos ver o site rodando no container com a imagem que preparamos.
 
 Note que não precisamos dar acesso aos arquivos do site com a flag `-v`, pois os arquivos do site já estão dentro da imagem. As configurações de pasta (`/home`) também já estão prontas, e não precisamos usar o terminal (`/bin/sh`) para executar o Flask pois a imagem já está preparada para rodar ele automaticamente. A flag `-it` nesse caso é opcional, apenas para podermos ver os logs do servidor Flask sendo executado. Apesar de termos identificado a porta 5000 no Dockerfile, ainda precisamos mapear ela no `docker run`, pois o Docker nos permite escolher a porta que será vinculada no momento da execução.
+
+Caso queira verificar o resultado final no seu computador sem precisar compilar a imagem, ela está disponível já compilada no repositório de pacotes do GitHub:
+
+```bash
+docker run -it -p 5000:5000 ghcr.io/larcc-group/escola-inverno-2022-docker:1-site-flask
+```
